@@ -38,7 +38,7 @@ func (v *Vector) Insert(index uint64, item interface{}) {
 	if v.Len()+1 < v.Capacity {
 		v.Length++
 		for i := v.Len(); i > index; i-- {
-			v.Data[i] = v.At(i-1)
+			v.Data[i] = v.At(i - 1)
 		}
 		v.Data[index] = item
 	} else {
