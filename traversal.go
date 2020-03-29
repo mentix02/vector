@@ -45,5 +45,5 @@ func (v *Vector) Index(toFind interface{}) (uint64, error) {
 			return uint64(index), nil
 		}
 	}
-	return 0, errors.New(fmt.Sprintf("'%v' not found in vector.", toFind))
+	return 0, fmt.Errorf("'%v' not found in vector.", toFind)
 }
