@@ -1,6 +1,6 @@
 package vector
 
-// Equals checks for equality between two
+// EqualsSlice checks for equality between two
 func (v *Vector) EqualsSlice(arr []interface{}) bool {
 
 	if v.Len() != uint64(len(arr)) {
