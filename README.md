@@ -1,7 +1,11 @@
 # vector
 
 ![Go](https://github.com/mentix02/vector/workflows/Go/badge.svg)
+![GitHub](https://img.shields.io/github/license/mentix02/vector)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mentix02/vector)
+[![Build Status](https://travis-ci.org/mentix02/vector.svg?branch=master)](https://travis-ci.org/mentix02/vector)
 [![Go Report Card](https://goreportcard.com/badge/github.com/mentix02/vector)](https://goreportcard.com/report/github.com/mentix02/vector)
+[![Coverage Status](https://coveralls.io/repos/github/mentix02/vector/badge.svg?branch=master)](https://coveralls.io/github/mentix02/vector?branch=master)
 
 A Go package providing a strong array library with support for resizing, searching, updating, and much more.
 
