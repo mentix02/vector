@@ -1,0 +1,13 @@
+language: go
+
+go:
+  - 1.x
+
+before_install:
+  - go get github.com/mattn/goveralls
+
+script:
+  - go get github.com/mentix02/vector && $GOPATH/bin/goveralls -service=travis-ci
+
+notifications:
+  email: false

@@ -1,5 +1,6 @@
 # vector
 
+![Go](https://github.com/mentix02/vector/workflows/Go/badge.svg)
 [![Go Report Card](https://goreportcard.com/badge/github.com/mentix02/vector)](https://goreportcard.com/report/github.com/mentix02/vector)
 
 A Go package providing a strong array library with support for resizing, searching, updating, and much more.
