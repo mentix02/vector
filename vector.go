@@ -26,3 +26,22 @@ func NewFromSlice(slice []interface{}) Vector {
 func (v *Vector) Len() uint64 {
 	return v.Length
 }
+
+// NewFromInt constructs a Vector from a given slice of int64s.
+func NewFromInt(slice []int64) Vector {
+	v := New(uint64(len(slice)))
+	for _, item := range slice {
+		v.Append(item)
+	}
+	return v
+}
+
+// NewFromFloat similar to NewFromInt returns a Vector
+// produced by a slice of float64s.
+func NewFromFloat(slice []float64) Vector {
+	v := New(uint64(len(slice)))
+	for _, item := range slice {
+		v.Append(item)
+	}
+	return v
+}
