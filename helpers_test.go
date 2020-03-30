@@ -2,12 +2,12 @@ package vector
 
 import "testing"
 
-func TestVector_Equals(t *testing.T) {
+func TestVector_EqualsSlice(t *testing.T) {
 	v := New(5)
 	n := []interface{}{4, 3, 2}
 
 	if v.EqualsSlice(n) {
-		t.Errorf("%v == %v", v.Data, n)
+		t.Errorf("%v == %v", v.Range(), n)
 	}
 
 	v.Append(2)
@@ -15,7 +15,25 @@ func TestVector_Equals(t *testing.T) {
 	v.Append(5)
 
 	if v.EqualsSlice(n) {
-		t.Errorf("%v == %v", v.Data, n)
+		t.Errorf("%v == %v", v.Range(), n)
+	}
+
+}
+
+func TestVector_EqualsVector(t *testing.T) {
+	var (
+		v1 = NewFromInt([]int64{4, 3, 1, 6, 3})
+		v2 = NewFromInt([]int64{4, 3, 1, 6, 3})
+	)
+
+	if !v1.EqualsVector(v2) {
+		t.Errorf("%v != %v", v1.Range(), v2.Range())
+	}
+
+	v2.Append(uint64(31))
+
+	if v1.EqualsVector(v2) {
+		t.Errorf("%v == %v", v1.Range(), v2.Range())
 	}
 
 }
