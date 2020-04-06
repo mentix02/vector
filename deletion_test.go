@@ -1,8 +1,6 @@
 package vector
 
-import (
-	"testing"
-)
+import "testing"
 
 func TestVector_Pop(t *testing.T) {
 	s := []int64{3, 1, 4, 5, 3}
@@ -34,7 +32,13 @@ func TestVector_Remove(t *testing.T) {
 	v := NewFromInt(s)
 	cv := NewFromInt(s)
 	v.Remove(int64(4))
+	v.Remove(int64(3))
+	v.Remove(int64(3))
 	if v.EqualsVector(cv) {
 		t.Errorf("%v == %v", v.Range(), cv.Range())
+	}
+	cv = NewFromInt([]int64{8, 1, 9})
+	if !v.EqualsVector(cv) {
+		t.Errorf("%v != %v", v.Range(), cv.Range())
 	}
 }
