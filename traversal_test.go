@@ -71,3 +71,24 @@ func TestVector_Index(t *testing.T) {
 		t.Errorf("%v should contain %d", v.Range(), 4)
 	}
 }
+
+func TestVector_Reverse(t *testing.T) {
+	s := []int64{4, 3, 1, 5, 6, 8}
+	v := NewFromInt(s)
+	v.Reverse()
+	for index, item := range v.Range() {
+		if item != s[len(s) - index - 1] {
+			t.Errorf("%d != %d", item, s[len(s) - index - 1])
+		}
+	}
+}
+
+func TestVector_Reversed(t *testing.T) {
+	s := []int64{4, 3, 1, 5, 6, 8}
+	v := NewFromInt(s)
+	for index, item := range v.Reversed() {
+		if item != s[len(s) - index - 1] {
+			t.Errorf("%d != %d", item, s[len(s) - index - 1])
+		}
+	}
+}

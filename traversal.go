@@ -45,5 +45,28 @@ func (v *Vector) Index(toFind interface{}) (uint64, error) {
 			return uint64(index), nil
 		}
 	}
-	return 0, fmt.Errorf("'%v' not found in vector.", toFind)
+	return 0, fmt.Errorf("'%v' not found in vector", toFind)
+}
+
+// Reverse reverses the vector's data internally without returning anything.
+func (v *Vector) Reverse() {
+	for low, high := uint64(0), v.Len()-1; low < high; low, high = low+1, high-1 {
+		temp := v.At(low)
+		v.Data[low] = v.Data[high]
+		v.Data[high] = temp
+	}
+}
+
+// Reversed creates a copy of vector's data (till Length) and returns it.
+// It is recommended to NOT use Reversed and instead use Vector.Range,
+// Vector.At, and Vector.Len() manually for all use cases.
+func (v *Vector) Reversed() []interface{} {
+	data := make([]interface{}, v.Len(), v.Len())
+	copy(data, v.Range())
+	for low, high := 0, len(data)-1; low < high; low, high = low+1, high-1 {
+		temp := data[low]
+		data[low] = data[high]
+		data[high] = temp
+	}
+	return data
 }
